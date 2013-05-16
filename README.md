@@ -1,8 +1,10 @@
 latlong2uscensus
 ================
 
+May 2013
+
 - Given US lat/long, return US Census (2010) Block FIPS
-- by Michael Ash (mash@econs.umass.edu), and Don Blair (donblair@pvos.org),  May 2013, mash@econs.umass.edu
+- by Michael Ash (mash@econs.umass.edu), and Don Blair (donblair@pvos.org)
 - With help from Ryan Action, David Arbour, and Klara Zwickl
 
 ### usage
