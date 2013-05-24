@@ -1,7 +1,7 @@
 ## latlong2uscensus.py
 ## Given US lat/long return US Census (2010) Block FIPS
 ## Michael Ash and Don Blair, May 2013, mash@econs.umass.edu
-## With help from Ryan Action, David Arbour, and Klara Zwickl
+## With help from Ryan Acton, David Arbour, and Klara Zwickl
 
 
 # This program is free software: you can redistribute it and/or modify
