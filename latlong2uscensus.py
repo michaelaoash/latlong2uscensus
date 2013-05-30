@@ -3,7 +3,6 @@
 ## Michael Ash and Don Blair, May 2013, mash@econs.umass.edu
 ## With help from Ryan Acton, David Arbour, and Klara Zwickl
 
-
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -54,8 +53,8 @@ for line in open(inputFilename, 'r'):
     words = line.rstrip().split(',')
     if len(words)==3: 
         label=words[0]
-        lat=words[1]
-        lon=words[2]  
+        lat=words[1].rstrip().lstrip()
+        lon=words[2].rstrip().lstrip()
         params = dict(
             latitude=lat,
             longitude=lon,
@@ -67,15 +66,26 @@ for line in open(inputFilename, 'r'):
             data = requests.get(url=url, params=params, timeout=timeout)
             binary = data.content
             output_json = json.loads(binary)
-            ## Warning: not tested when multiple blocks are returned
-            blocks = output_json['Results']['block']
-            for b in blocks:
-                FIPS = b['FIPS']
-                output = label + ", " + lat + ", " + lon + ", " + FIPS + ", " + FIPS[0:2]  + ", " + FIPS[2:5]  + ", " + FIPS[5:11] + ", " + FIPS[11:12]
-                # write to screen
-                print output
-                # write to file
-                outFile.write(output+"\n") 
+            ## If multiple blocks are returned they are in the 'intersect' object
+            if 'intersect' in output_json['Results']:
+                blocks = output_json['Results']['intersect']['block']
+                for b in blocks:
+                    FIPS = b['FIPS']
+                    output=label+","+lat+","+lon+","+FIPS+","+FIPS[0:2]+","+FIPS[2:5]+","+FIPS[5:11]+","+FIPS[11:12]+","+FIPS[11:15]
+                    # write to screen
+                    print output
+                    # write to file
+                    outFile.write(output+"\n") 
+            ## Otherwise block is in the 'Results' object
+            else:
+                blocks = output_json['Results']['block']
+                for b in blocks:
+                    FIPS = b['FIPS']
+                    output=label+","+lat+","+lon+","+FIPS+","+FIPS[0:2]+","+FIPS[2:5]+","+FIPS[5:11]+","+FIPS[11:12]+","+FIPS[11:15]
+                    # write to screen
+                    print output
+                    # write to file
+                    outFile.write(output+"\n") 
         except requests.ConnectionError as e:
             #output = "\n ConnectionError:" + str(e.strerror) +", for input:" + line
             output = label + ", " + lat + ", " + lon + " -- ConnectionError\n"
