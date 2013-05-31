@@ -71,7 +71,7 @@ for line in open(inputFilename, 'r'):
                 blocks = output_json['Results']['intersect']['block']
                 for b in blocks:
                     FIPS = b['FIPS']
-                    output=label+"\t"+lat+"\t"+lon+"\t"+FIPS+"\t"+FIPS[0:2]+"\t"+FIPS[2:5]+"\t"+FIPS[5:11]+"\t"+FIPS[11:12]+"\t"+FIPS[11:15]
+                    output=label+"\t"+lat+"\t"+lon+"\t"+FIPS+"\t"+FIPS[0:2]+"\t"+FIPS[0:5]+"\t"+FIPS[0:11]+"\t"+FIPS[0:12]+"\t"+FIPS[0:15]
                     # write to screen
                     print output
                     # write to file
@@ -81,7 +81,7 @@ for line in open(inputFilename, 'r'):
                 blocks = output_json['Results']['block']
                 for b in blocks:
                     FIPS = b['FIPS']
-                    output=label+"\t"+lat+"\t"+lon+"\t"+FIPS+"\t"+FIPS[0:2]+"\t"+FIPS[2:5]+"\t"+FIPS[5:11]+"\t"+FIPS[11:12]+"\t"+FIPS[11:15]
+                    output=label+"\t"+lat+"\t"+lon+"\t"+FIPS+"\t"+FIPS[0:2]+"\t"+FIPS[0:5]+"\t"+FIPS[0:11]+"\t"+FIPS[0:12]+"\t"+FIPS[0:15]
                     # write to screen
                     print output
                     # write to file
