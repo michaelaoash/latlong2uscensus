@@ -25,7 +25,7 @@
 # Usage:
 # python latlong2uscensus.py [inputFilename] [trialNumber]
 # Example:
-# python latlong2uscensus.py rseqid_lat_long_sample.txt 3
+# python latlong2uscensus.py sampleInput.txt 3
 
 import json, requests, pprint, sys
 

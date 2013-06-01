@@ -10,6 +10,6 @@ May 2013
 - From National Broadband Map (thanks!)
 
 ### usage
-python latlong2uscensus.py inputfile.txt trialNum
+python latlong2uscensus.py sampleInput.txt trialNum
 
 
